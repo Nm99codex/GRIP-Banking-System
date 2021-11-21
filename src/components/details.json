@@ -1,0 +1,62 @@
+[
+    {
+        "name": "James",
+        "accountNo": 121312451624512,
+        "BankName": "SBI",
+        "amount" : 1000
+    },
+    {
+        "name": "Nikhil",
+        "accountNo":79451624512,
+        "BankName": "PNB",
+        "amount" : 1040
+    },
+    {
+        "name": "Ram",
+        "accountNo": 234534345345,
+        "BankName": "Canara",
+        "amount" : 1200
+    },
+    {
+        "name": "Alex",
+        "accountNo": 9890234534345,
+        "BankName": "Union",
+        "amount" : 2200
+    },
+    {
+        "name": "Aditya",
+        "accountNo": 454023453234345,
+        "BankName": "ATL",
+        "amount" : 13000
+    },
+    {
+        "name": "Ubuntu",
+        "accountNo": 4540234534345,
+        "BankName": "Corporation",
+        "amount" : 1300
+    },
+    {
+        "name": "Ajay",
+        "accountNo": 4540234534345,
+        "BankName": "Corporation",
+        "amount" : 1300
+    },
+    {
+        "name": "Ishan",
+        "accountNo": 4540234534345,
+        "BankName": "Union",
+        "amount" : 67300
+    },
+    {
+        "name": "Robert",
+        "accountNo": 3544534534345,
+        "BankName": "Corporation",
+        "amount" : 2323
+    },
+    {
+        "name": "Sam",
+        "accountNo": 23423534345,
+        "BankName": "SBI",
+        "amount" : 68900
+    }
+]
