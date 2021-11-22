@@ -3,12 +3,30 @@ import Carousal from "../components/Carousal";
 import ShowModal from "./ShowModal";
 import { useState } from "react";
 import Swal from 'sweetalert2';
+import axios from 'axios'
 
 
 function Field() {
+
+  const [name, setName] = useState("");
+  const [accountNo, setAccountNo] = useState("");
+  const [BankName, setBankName] = useState("");
+  const [amount, setAmount] = useState("");
+
   const [showModal, setShowModal] = useState(false);
+
+  async function UserPost()
+  {
+    
+        console.log(name,accountNo,BankName,amount)
+        const userDetails = {
+            "name" : name,
+            "accountNo" : accountNo,
+            "BankName" : BankName,
+            "amount" : amount
+        }
   
-  function UserPost(){
+  await axios.post("https://bank123456-backend.herokuapp.com/addingTransactions", userDetails).then(()=>{
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -29,7 +47,8 @@ function Field() {
         setShowModal(false)
       }
     })
-  }
+  });
+}
 
   function CancelTransaction()
   {
@@ -112,7 +131,9 @@ function Field() {
                           </label>
                           <input
                             id="name"
+                            value = {name}
                             required='true'
+                            onChange={(e)=>setName(e.target.value)}
                             className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
                             placeholder="James"
                           />
@@ -152,6 +173,8 @@ function Field() {
                             <input
                               id="email2"
                               type="number"
+                              value = {accountNo}
+                              onChange={(e)=>setAccountNo(e.target.value)}
                               required='true'
                               className="text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-16 text-sm border-gray-300 rounded border"
                               placeholder="XXXX - XXXX - XXXX - XXXX"
@@ -170,7 +193,10 @@ function Field() {
                             <input
                               id="expiry"
                               type='text'
+                              value = {BankName}
                               required='true'
+                              onChange={(e)=>setBankName(e.target.value)}
+
                               className="text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
                               placeholder=""
                             />
@@ -203,6 +229,8 @@ function Field() {
                             </div>
                             <input
                               id="cvc"
+                              value = {amount}
+                              onChange={(e)=>setAmount(e.target.value)}
                               type="number" required="true"
                               className="mb-8 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
                               placeholder=""
@@ -253,11 +281,6 @@ function Field() {
                 </>
               ) : null}
 
-
-
-
-
-
               <button style = {{cursor:"pointer"}} onClick={()=>window.location.href="/Alltransactions"} class="ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg">
                 View transactions
               </button>
@@ -269,4 +292,4 @@ function Field() {
   );
 }
 
-export default Field;
+export default Field

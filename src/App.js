@@ -1,4 +1,3 @@
-
 import './App.css';
 import Header from './components/Header';
 import Field from './components/Field';
@@ -7,7 +6,8 @@ import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import ShowModal from './components/ShowModal';
 import AllTransaction from './components/AllTransaction';
 
-function App() {
+function App() 
+{
   return (
     <Router>
     <div>

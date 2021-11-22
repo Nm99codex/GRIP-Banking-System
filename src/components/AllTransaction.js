@@ -5,25 +5,22 @@ import data from '../components/details.json';
 import axios from 'axios';
 
 function AllTransaction() {
-  async function getUser() {
-    try {
-      const response = await axios.get('http://localhost:5000/Alltransactions');
-      console.log(response);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+ 
+  const [data, setData] = useState([]);
+
+  useEffect(async () => {
+      try {
+          const response = await axios.get('https://bank123456-backend.herokuapp.com/alltransactions')
+          console.log(response);
+          setData(response.data)
+      }
+      catch(error)
+      {
+          console.error(error);
+      }
+  }, []);
 
 
-
-
-    var [date,setDate] = useState(new Date());
-    
-    useEffect(() => {
-        var timer = setInterval(()=>setDate(new Date()), 1000 )
-        return function cleanup() {
-            clearInterval(timer)
-        }});
   return (
     <div>
 
